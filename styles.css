@@ -76,7 +76,7 @@ body {
 .hero {
   position: relative; z-index: 1;
   max-width: 620px; margin: 0 auto;
-  padding: 80px 24px 48px;
+  padding: 40px 24px 28px;
   display: flex; flex-direction: column; align-items: center; text-align: center;
 }
 
@@ -84,7 +84,7 @@ body {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 6px 14px; border: 1px solid var(--border); border-radius: 100px;
   font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--purple); background: rgba(139,92,246,0.08); margin-bottom: 36px;
+  color: var(--purple); background: rgba(139,92,246,0.08); margin-bottom: 20px;
 }
 .badge-dot {
   width: 6px; height: 6px; border-radius: 50%; background: var(--purple);
@@ -92,44 +92,27 @@ body {
 }
 
 h1 {
-  font-size: clamp(38px, 8vw, 64px); font-weight: 800;
-  line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 40px;
+  font-size: clamp(34px, 7vw, 56px); font-weight: 800;
+  line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 20px;
 }
 .accent {
   background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
-.countdown-eyebrow {
-  font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--label); margin-bottom: 18px;
-}
-.countdown {
-  display: flex; align-items: flex-start; gap: 8px; margin-bottom: 40px;
-}
-.cd-unit { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.cd-box {
+.countdown-strip {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 13px; font-weight: 600; color: var(--muted);
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 14px; padding: 18px 22px; min-width: 84px;
+  border-radius: 100px; padding: 8px 18px; margin-bottom: 18px;
+  font-variant-numeric: tabular-nums;
 }
-.cd-digit {
-  font-size: clamp(40px, 8vw, 64px); font-weight: 800;
-  letter-spacing: -0.04em; font-variant-numeric: tabular-nums; line-height: 1;
-  background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.5) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.cd-label {
-  font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--label);
-}
-.cd-sep {
-  font-size: clamp(32px, 6vw, 52px); font-weight: 800;
-  color: rgba(139,92,246,0.3); line-height: 1; padding-top: 16px;
-}
+.cd-icon { font-size: 14px; margin-right: 4px; }
+.cd-val { color: #fff; font-weight: 800; }
 
 .hero-sub {
-  font-size: 16px; line-height: 1.7; color: var(--muted);
-  max-width: 460px; margin-bottom: 48px;
+  font-size: 15px; line-height: 1.7; color: var(--muted);
+  max-width: 480px; margin-bottom: 20px;
 }
 
 .divider {
@@ -148,34 +131,33 @@ h1 {
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* ── Urgency Bar ── */
-.urgency-bar {
-  position: relative; z-index: 1;
-  background: #dc2626;
-  text-align: center;
-  font-size: 11px; font-weight: 800;
-  letter-spacing: 2px; color: #fff;
-  padding: 12px 16px;
-  animation: urgency-flash 1.8s ease-in-out infinite;
+/* ── Urgency Pill ── */
+.urgency-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 20px; border-radius: 100px;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  color: #fca5a5; font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+  margin-bottom: 16px;
+  animation: pill-flash 1.8s ease-in-out infinite;
 }
 .urgency-dot {
-  display: inline-block;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: #fff; margin: 0 8px;
-  vertical-align: middle;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #ef4444; flex-shrink: 0;
   animation: pulse 1s ease-in-out infinite;
 }
 
-@keyframes urgency-flash {
-  0%, 100% { background: #dc2626; }
-  50% { background: #991b1b; }
+@keyframes pill-flash {
+  0%, 100% { border-color: rgba(220,38,38,0.35); background: rgba(220,38,38,0.10); }
+  50%       { border-color: rgba(220,38,38,0.65); background: rgba(220,38,38,0.18); }
 }
 
 /* ── Form Section ── */
 .form-section {
   position: relative; z-index: 1;
   max-width: 620px; margin: 0 auto;
-  padding: 48px 24px 80px;
+  padding: 16px 24px 80px;
+  display: flex; flex-direction: column; align-items: center;
 }
 
 .form-card {
