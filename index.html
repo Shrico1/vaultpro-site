@@ -4,193 +4,294 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vault Pro — Apply Now</title>
-  <meta name="description" content="The first done-for-you resale operation built for serious sellers. Inventory sourced, stored, and shipped. You just list and collect.">
+  <meta name="description" content="The first done-for-you resale fulfillment operation built for serious sellers.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Sticky Nav -->
+  <div class="orb orb-top"></div>
+  <div class="orb orb-bottom"></div>
+
+  <!-- Nav -->
   <nav class="nav">
     <div class="nav-inner">
       <span class="nav-logo">⚡ Vault Pro</span>
-      <a href="#apply" class="btn btn-gold">Apply Now →</a>
+      <a href="#apply" class="nav-cta">Apply Now →</a>
     </div>
   </nav>
 
-  <!-- Announcement Bar -->
-  <div class="bar">
+  <!-- Top bar -->
+  <div class="top-bar">
     LIMITED SPOTS — ONLY A HANDFUL OF SELLERS ACCEPTED EACH MONTH — APPLY NOW
   </div>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container center">
-      <p class="eyebrow">— EXCLUSIVE FULFILLMENT PROGRAM —</p>
-      <h1 class="fade-in">
-        The First Done-For-You Resale Business<br>
-        <em>Built for Serious Sellers</em>
-      </h1>
-      <p class="hero-sub fade-in">
-        Inventory sourced. Products stored. Orders shipped.<br>
-        All you do is list and collect. Nobody has made it this easy — until now.
-      </p>
-      <a href="#apply" class="btn btn-gold btn-lg fade-in">Apply to Access Vault Pro →</a>
-      <p class="spots fade-in">⚠ Limited intake — spots fill every month</p>
+    <div class="badge"><div class="badge-dot"></div>Beta — 5 Spots Remaining</div>
+
+    <h1>The <span class="accent">Only</span> Done-For-You<br>Resale Operation</h1>
+
+    <p class="countdown-eyebrow">Applications close in</p>
+    <div class="countdown">
+      <div class="cd-unit">
+        <div class="cd-box"><div class="cd-digit" id="cd-days">00</div></div>
+        <div class="cd-label">Days</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <div class="cd-box"><div class="cd-digit" id="cd-hours">00</div></div>
+        <div class="cd-label">Hours</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <div class="cd-box"><div class="cd-digit" id="cd-mins">00</div></div>
+        <div class="cd-label">Mins</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <div class="cd-box"><div class="cd-digit" id="cd-secs">00</div></div>
+        <div class="cd-label">Secs</div>
+      </div>
+    </div>
+
+    <p class="hero-sub">Inventory sourced. Products stored. Orders shipped. You just list and collect.<br>Nobody has made it this easy to start selling — until now.</p>
+
+    <div class="divider"></div>
+
+    <div class="spots-bar">
+      <div class="spots-dot"></div>
+      <span><strong>3 spots</strong> remaining out of 5 this month</span>
     </div>
   </section>
 
-  <!-- Why Vault Pro -->
-  <section class="section">
-    <div class="container narrow center">
-      <h2 class="section-title fade-in">Why <em>Vault Pro?</em></h2>
-      <p class="fade-in">
-        Most people want to sell online but never start. Sourcing is confusing, storage is expensive, and shipping takes over your life. So they stall — and never make a dollar.
-      </p>
-      <p class="fade-in">
-        Vault Pro removes every single one of those roadblocks. We handle the inventory, the warehousing, and the fulfillment. You focus on one thing: <strong>selling.</strong>
-      </p>
-      <p class="fade-in">
-        This isn't a course. This isn't a supplier list. This is an active fulfillment partnership — and it's the only one of its kind.
-      </p>
+  <!-- Urgency bar -->
+  <div class="urgency-bar" id="apply">
+    <span class="urgency-dot"></span>
+    SPOTS ARE LIMITED — ONLY QUALIFIED APPLICANTS WILL BE ACCEPTED
+    <span class="urgency-dot"></span>
+  </div>
+
+  <!-- Form -->
+  <section class="form-section">
+    <div class="form-card">
+      <div id="form-inner">
+
+        <!-- Step 1 -->
+        <div class="step active" data-step="1">
+          <div class="step-eyebrow">1 / 7</div>
+          <div class="step-question">How long have you been in ecommerce?</div>
+          <div class="choices">
+            <input class="choice-input" type="radio" name="experience" id="exp-1" value="Just starting out">
+            <label class="choice-label" for="exp-1">Just starting out</label>
+            <input class="choice-input" type="radio" name="experience" id="exp-2" value="6 months – 1 year">
+            <label class="choice-label" for="exp-2">6 months – 1 year</label>
+            <input class="choice-input" type="radio" name="experience" id="exp-3" value="1–2 years">
+            <label class="choice-label" for="exp-3">1–2 years</label>
+            <input class="choice-input" type="radio" name="experience" id="exp-4" value="2–5 years">
+            <label class="choice-label" for="exp-4">2–5 years</label>
+            <input class="choice-input" type="radio" name="experience" id="exp-5" value="5+ years">
+            <label class="choice-label" for="exp-5">5+ years</label>
+          </div>
+          <div class="error-msg" id="err-1"><div class="error-dot"></div>Answer required to continue</div>
+          <div class="btn-row">
+            <button class="back-btn hidden" onclick="prevStep(1)">←</button>
+            <button class="ok-btn" onclick="nextStep(1)">OK <span class="ok-arrow">→</span></button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step" data-step="2">
+          <div class="step-eyebrow">2 / 7</div>
+          <div class="step-question">What's your long-term goal with Vault Pro?</div>
+          <div class="choices">
+            <input class="choice-input" type="radio" name="goal" id="goal-1" value="Consistent side income">
+            <label class="choice-label" for="goal-1">Consistent side income</label>
+            <input class="choice-input" type="radio" name="goal" id="goal-2" value="Replace my 9-5">
+            <label class="choice-label" for="goal-2">Replace my 9-5</label>
+            <input class="choice-input" type="radio" name="goal" id="goal-3" value="Scale to 6 figures">
+            <label class="choice-label" for="goal-3">Scale to 6 figures</label>
+            <input class="choice-input" type="radio" name="goal" id="goal-4" value="Build a full business">
+            <label class="choice-label" for="goal-4">Build a full business</label>
+          </div>
+          <div class="error-msg" id="err-2"><div class="error-dot"></div>Answer required to continue</div>
+          <div class="btn-row">
+            <button class="back-btn" onclick="prevStep(2)">←</button>
+            <button class="ok-btn" onclick="nextStep(2)">OK <span class="ok-arrow">→</span></button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step" data-step="3">
+          <div class="step-eyebrow">3 / 7</div>
+          <div class="step-question">How old are you?</div>
+          <div class="choices">
+            <input class="choice-input" type="radio" name="age" id="age-1" value="Under 18">
+            <label class="choice-label" for="age-1">Under 18</label>
+            <input class="choice-input" type="radio" name="age" id="age-2" value="18–24">
+            <label class="choice-label" for="age-2">18–24</label>
+            <input class="choice-input" type="radio" name="age" id="age-3" value="25–34">
+            <label class="choice-label" for="age-3">25–34</label>
+            <input class="choice-input" type="radio" name="age" id="age-4" value="35+">
+            <label class="choice-label" for="age-4">35+</label>
+          </div>
+          <div class="error-msg" id="err-3"><div class="error-dot"></div>Answer required to continue</div>
+          <div class="btn-row">
+            <button class="back-btn" onclick="prevStep(3)">←</button>
+            <button class="ok-btn" onclick="nextStep(3)">OK <span class="ok-arrow">→</span></button>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step" data-step="4">
+          <div class="step-eyebrow">4 / 7</div>
+          <div class="step-question">What budget range do you have for this?</div>
+          <div class="choices">
+            <input class="choice-input" type="radio" name="budget" id="bud-1" value="Under $200">
+            <label class="choice-label" for="bud-1">Under $200</label>
+            <input class="choice-input" type="radio" name="budget" id="bud-2" value="$200 – $500">
+            <label class="choice-label" for="bud-2">$200 – $500</label>
+            <input class="choice-input" type="radio" name="budget" id="bud-3" value="$500 – $1,000">
+            <label class="choice-label" for="bud-3">$500 – $1,000</label>
+            <input class="choice-input" type="radio" name="budget" id="bud-4" value="$1,000+">
+            <label class="choice-label" for="bud-4">$1,000+</label>
+          </div>
+          <div class="error-msg" id="err-4"><div class="error-dot"></div>Answer required to continue</div>
+          <div class="btn-row">
+            <button class="back-btn" onclick="prevStep(4)">←</button>
+            <button class="ok-btn" onclick="nextStep(4)">OK <span class="ok-arrow">→</span></button>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step" data-step="5">
+          <div class="step-eyebrow">5 / 7</div>
+          <div class="step-question">What's your Instagram @?</div>
+          <input class="step-input" type="text" id="instagram" placeholder="@yourhandle">
+          <div class="error-msg" id="err-5"><div class="error-dot"></div>Answer required to continue</div>
+          <div class="btn-row">
+            <button class="back-btn" onclick="prevStep(5)">←</button>
+            <button class="ok-btn" onclick="nextStep(5)">OK <span class="ok-arrow">→</span></button>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="step" data-step="6">
+          <div class="step-eyebrow">6 / 7</div>
+          <div class="step-question">What's your email?</div>
+          <input class="step-input" type="email" id="email" placeholder="you@email.com">
+          <div class="error-msg" id="err-6"><div class="error-dot"></div>Answer required to continue</div>
+          <div class="btn-row">
+            <button class="back-btn" onclick="prevStep(6)">←</button>
+            <button class="ok-btn" onclick="nextStep(6)">OK <span class="ok-arrow">→</span></button>
+          </div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="step" data-step="7">
+          <div class="step-eyebrow">7 / 7</div>
+          <div class="step-question">What's your name and best phone number?</div>
+          <div class="row-2">
+            <input class="step-input" type="text" id="name" placeholder="Full name">
+            <input class="step-input" type="tel" id="phone" placeholder="+1 (000) 000-0000">
+          </div>
+          <div class="disclaimer">
+            Vault Pro <span class="does-not">DOES NOT</span> require you to purchase inventory. Access to our warehouse, fulfillment services, and everything in between requires a simple monthly membership. Beta clients following the system are targeting <strong>$5K–$30K+ per month</strong> in revenue.
+          </div>
+          <div class="error-msg" id="err-7"><div class="error-dot"></div>Answer required to continue</div>
+          <div class="btn-row">
+            <button class="back-btn" onclick="prevStep(7)">←</button>
+            <button class="submit-btn" onclick="submitForm()">Submit Application →</button>
+          </div>
+        </div>
+
+        <div class="dots" id="dots"></div>
+      </div>
+
+      <div class="success-state" id="success-state">
+        <div class="success-icon">✓</div>
+        <h3>Application Received</h3>
+        <p>We'll review your application and reach out within 48 hours. Keep an eye on your phone.</p>
+      </div>
     </div>
   </section>
 
   <!-- How It Works -->
-  <section class="section steps-section">
-    <div class="container center">
-      <h2 class="section-title fade-in">How It <em>Works</em></h2>
-      <div class="steps fade-in">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-icon">📋</div>
+  <section class="info-section">
+    <div class="info-container">
+      <p class="section-eyebrow">— THE PROCESS —</p>
+      <h2 class="section-title">How It <em>Works</em></h2>
+      <div class="steps-grid">
+        <div class="info-card">
+          <div class="info-num">01</div>
+          <div class="info-icon">📋</div>
           <h3>Apply &amp; Get Approved</h3>
-          <p>Submit your application. We review every applicant personally and only accept serious sellers.</p>
+          <p>Submit your application. We personally review every applicant and only accept sellers who are serious about building something real.</p>
         </div>
-        <div class="step-arrow">→</div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-icon">📦</div>
+        <div class="steps-arrow">→</div>
+        <div class="info-card">
+          <div class="info-num">02</div>
+          <div class="info-icon">📦</div>
           <h3>Get Your Products</h3>
-          <p>We assign you sourced, photographed, ready-to-list inventory straight from our warehouse.</p>
+          <p>We assign you sourced, photographed, ready-to-list inventory from our warehouse. No sourcing, no guesswork — just product ready to post.</p>
         </div>
-        <div class="step-arrow">→</div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-icon">💰</div>
+        <div class="steps-arrow">→</div>
+        <div class="info-card">
+          <div class="info-num">03</div>
+          <div class="info-icon">💰</div>
           <h3>List, Sell, Collect</h3>
-          <p>Post on Depop, Poshmark, eBay — wherever you sell. We ship every order. You keep the profit.</p>
-        </div>
-      </div>
-      <p class="steps-note fade-in">It really is that simple. That's the whole point.</p>
-      <a href="#apply" class="btn btn-gold fade-in">Show Me How →</a>
-    </div>
-  </section>
-
-  <!-- What's Included -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title center fade-in">What's <em>Included</em></h2>
-      <div class="cards fade-in">
-        <div class="card">
-          <div class="card-tag">INCLUDED</div>
-          <div class="card-icon">🏭</div>
-          <h3>Sourced Inventory</h3>
-          <p>Products sourced from vetted suppliers — items that actually sell, not random junk.</p>
-        </div>
-        <div class="card">
-          <div class="card-tag">INCLUDED</div>
-          <div class="card-icon">🏪</div>
-          <h3>Warehousing &amp; Storage</h3>
-          <p>We store everything. No garage piles, no storage units. Your inventory lives at our facility.</p>
-        </div>
-        <div class="card">
-          <div class="card-tag">INCLUDED</div>
-          <div class="card-icon">📸</div>
-          <h3>Product Photography</h3>
-          <p>Every item comes photo-ready. Clean product shots you can post immediately — no setup needed.</p>
-        </div>
-        <div class="card">
-          <div class="card-tag">INCLUDED</div>
-          <div class="card-icon">🚚</div>
-          <h3>Order Fulfillment</h3>
-          <p>When you make a sale, we pack and ship it. You never touch the product.</p>
-        </div>
-        <div class="card">
-          <div class="card-tag">INCLUDED</div>
-          <div class="card-icon">📊</div>
-          <h3>Seller Support</h3>
-          <p>Direct access to our team. Pricing guidance, listing tips, and ongoing support throughout.</p>
-        </div>
-        <div class="card">
-          <div class="card-tag">INCLUDED</div>
-          <div class="card-icon">🔄</div>
-          <h3>Continuous Restocking</h3>
-          <p>As you sell through your inventory, we restock you. The pipeline never dries up.</p>
+          <p>Post on Depop, Poshmark, eBay — wherever you sell. The moment something moves, we pack and ship it. You keep the profit.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Application -->
-  <section class="section apply-section" id="apply">
-    <div class="container narrow center">
-      <h2 class="section-title fade-in">Apply for <em>Vault Pro</em></h2>
-      <p class="apply-sub fade-in">We review every application personally. If you're a fit, we'll reach out directly.</p>
-
-      <form class="apply-form fade-in" id="applyForm" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required>
+  <!-- Why We're Different -->
+  <section class="info-section diff-section">
+    <div class="info-container">
+      <p class="section-eyebrow">— WHY IT MATTERS —</p>
+      <h2 class="section-title">Why <em>We're Different</em></h2>
+      <div class="diff-grid">
+        <div class="diff-text">
+          <p>Every major resale platform — Depop, Poshmark, Mercari — hands you a prepaid label when someone buys from you. Sounds convenient. But those labels quietly cap what you can ship: weight limits, size restrictions, no bulk orders.</p>
+          <p>And every single sale still means <em>you</em> physically pack it, label it, and drop it off. That's not a business. That's a part-time job with no ceiling.</p>
+          <p>The problem isn't the platforms. It's the model. When you're the one shipping, <strong>you're the bottleneck.</strong> Doing 50 orders a day means your life gets taken over — fast.</p>
+          <div class="diff-highlight">
+            Vault Pro is the fulfillment layer the platforms don't offer. Your sales go up. Your workload doesn't. That's how you actually scale.
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required>
+          <a href="#apply" class="purple-btn">Apply Now →</a>
+        </div>
+        <div class="diff-cards">
+          <div class="diff-card bad">
+            <div class="diff-card-label">❌ Without Vault Pro</div>
+            <ul>
+              <li>You source every product yourself</li>
+              <li>You store everything at home</li>
+              <li>You pack and ship every order</li>
+              <li>Prepaid label limits cap your scale</li>
+              <li>More sales = more of your time</li>
+            </ul>
+          </div>
+          <div class="diff-card good">
+            <div class="diff-card-label">✓ With Vault Pro</div>
+            <ul>
+              <li>We source and stock your inventory</li>
+              <li>We warehouse everything</li>
+              <li>We fulfill every order for you</li>
+              <li>No label limits — we handle shipping</li>
+              <li>More sales = more money, same effort</li>
+            </ul>
           </div>
         </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required>
-        </div>
-        <div class="form-group">
-          <label for="platforms">What platforms do you sell on (or want to)?</label>
-          <input type="text" id="platforms" name="platforms" placeholder="Depop, Poshmark, eBay, Mercari..." required>
-        </div>
-        <div class="form-group">
-          <label for="revenue">Current monthly resale revenue</label>
-          <select id="revenue" name="revenue" required>
-            <option value="" disabled selected>Select a range</option>
-            <option>$0 — just starting out</option>
-            <option>$1–$500/mo</option>
-            <option>$500–$2,000/mo</option>
-            <option>$2,000–$5,000/mo</option>
-            <option>$5,000+/mo</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="why">Why do you want to join Vault Pro?</label>
-          <textarea id="why" name="why" placeholder="Tell us about yourself and why you're applying..." rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-gold btn-lg btn-block" id="submitBtn">
-          Submit Application →
-        </button>
-        <p class="form-note">We'll reach out via text or email within 48 hours.</p>
-      </form>
-
-      <div class="success" id="successMsg" style="display:none">
-        <div class="success-check">✓</div>
-        <h3>Application Received</h3>
-        <p>We'll be in touch within 48 hours. Keep an eye on your phone.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container center">
+    <div class="info-container" style="text-align:center">
       <p class="footer-logo">⚡ Vault Pro</p>
       <p class="footer-copy">© 2026 Vault Pro. All rights reserved. A Seller Vault program.</p>
     </div>

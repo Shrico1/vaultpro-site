@@ -1,19 +1,75 @@
-// Fade-in on scroll
-const observer = new IntersectionObserver(
-  (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-  { threshold: 0.08 }
-);
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+const CLOSE_DATE = new Date('2026-05-29T23:59:59');
+const TOTAL = 7;
 
-// Form submission
-document.getElementById('applyForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
+// Countdown
+function pad(n) { return String(n).padStart(2, '0'); }
+function tick() {
+  const diff = CLOSE_DATE - Date.now();
+  if (diff <= 0) {
+    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '00');
+    return;
+  }
+  document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 86400000));
+  document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+  document.getElementById('cd-mins').textContent  = pad(Math.floor((diff % 3600000) / 60000));
+  document.getElementById('cd-secs').textContent  = pad(Math.floor((diff % 60000) / 1000));
+}
+tick(); setInterval(tick, 1000);
 
-  const btn = document.getElementById('submitBtn');
+// Progress dots
+const dotsEl = document.getElementById('dots');
+for (let i = 1; i <= TOTAL; i++) {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 1 ? ' active' : '');
+  d.id = 'dot-' + i;
+  dotsEl.appendChild(d);
+}
+
+function setStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.querySelector('[data-step="' + n + '"]').classList.add('active');
+  for (let i = 1; i <= TOTAL; i++) {
+    document.getElementById('dot-' + i).classList.toggle('active', i === n);
+  }
+}
+
+function prevStep(current) { if (current > 1) setStep(current - 1); }
+
+function showErr(n) { document.getElementById('err-' + n).classList.add('show'); }
+function clearErr(n) { document.getElementById('err-' + n).classList.remove('show'); }
+
+function nextStep(current) {
+  const radioNames = ['experience', 'goal', 'age', 'budget'];
+  if (current <= 4) {
+    if (!document.querySelector('input[name="' + radioNames[current - 1] + '"]:checked')) {
+      showErr(current); return;
+    }
+  }
+  if (current === 5 && !document.getElementById('instagram').value.trim()) { showErr(5); return; }
+  if (current === 6 && !document.getElementById('email').value.trim()) { showErr(6); return; }
+  clearErr(current);
+  setStep(current + 1);
+}
+
+async function submitForm() {
+  const name  = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  if (!name || !phone) { showErr(7); return; }
+
+  const btn = document.querySelector('.submit-btn');
   btn.textContent = 'Submitting...';
   btn.disabled = true;
 
-  const data = Object.fromEntries(new FormData(e.target).entries());
+  const data = {
+    name,
+    phone,
+    email:      document.getElementById('email').value.trim(),
+    instagram:  document.getElementById('instagram').value.trim(),
+    experience: document.querySelector('input[name="experience"]:checked')?.value || '',
+    goal:       document.querySelector('input[name="goal"]:checked')?.value || '',
+    age:        document.querySelector('input[name="age"]:checked')?.value || '',
+    budget:     document.querySelector('input[name="budget"]:checked')?.value || '',
+  };
 
   try {
     const res = await fetch('https://vault-pro-apply.nsavi-finance.workers.dev/', {
@@ -21,14 +77,12 @@ document.getElementById('applyForm').addEventListener('submit', async (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
-
     if (!res.ok) throw new Error();
-
-    document.getElementById('applyForm').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('form-inner').style.display = 'none';
+    document.getElementById('success-state').style.display = 'flex';
   } catch {
     btn.textContent = 'Submit Application →';
     btn.disabled = false;
     alert('Something went wrong — please try again.');
   }
-});
+}

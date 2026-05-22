@@ -11,24 +11,22 @@ export async function onRequestPost({ request, env }) {
       },
       body: JSON.stringify({
         fields: {
-          Name:      data.name      || '',
-          Email:     data.email     || '',
-          Phone:     data.phone     || '',
-          Platforms: data.platforms || '',
-          Revenue:   data.revenue   || '',
-          Why:       data.why       || '',
-          Status:    'New',
+          Name:       data.name       || '',
+          Email:      data.email      || '',
+          Phone:      data.phone      || '',
+          Instagram:  data.instagram  || '',
+          Experience: data.experience || '',
+          Goal:       data.goal       || '',
+          Age:        data.age        || '',
+          Budget:     data.budget     || '',
+          Status:     'New',
           'Applied At': new Date().toISOString(),
         },
       }),
     }
   );
 
-  if (!res.ok) {
-    const err = await res.text();
-    console.error('Airtable error:', err);
-    return new Response('Error saving application', { status: 500 });
-  }
-
-  return new Response('OK', { status: 200 });
+  const headers = { 'Access-Control-Allow-Origin': '*' };
+  if (!res.ok) return new Response('Error', { status: 500, headers });
+  return new Response('OK', { status: 200, headers });
 }
