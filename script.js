@@ -16,7 +16,7 @@ document.getElementById('applyForm').addEventListener('submit', async (e) => {
   const data = Object.fromEntries(new FormData(e.target).entries());
 
   try {
-    const res = await fetch('/apply', {
+    const res = await fetch('https://vault-pro-apply.nsavi-finance.workers.dev/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
