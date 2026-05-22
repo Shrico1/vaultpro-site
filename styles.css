@@ -100,15 +100,32 @@ h1 {
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
-.countdown-strip {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: 13px; font-weight: 600; color: var(--muted);
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 100px; padding: 8px 18px; margin-bottom: 18px;
-  font-variant-numeric: tabular-nums;
+.countdown-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--label); margin-bottom: 18px;
 }
-.cd-icon { font-size: 14px; margin-right: 4px; }
-.cd-val { color: #fff; font-weight: 800; }
+.countdown {
+  display: flex; align-items: flex-start; gap: 8px; margin-bottom: 32px;
+}
+.cd-unit { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.cd-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 18px 22px; min-width: 84px;
+}
+.cd-digit {
+  font-size: clamp(40px, 8vw, 64px); font-weight: 800;
+  letter-spacing: -0.04em; font-variant-numeric: tabular-nums; line-height: 1;
+  background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.5) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.cd-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--label);
+}
+.cd-sep {
+  font-size: clamp(32px, 6vw, 52px); font-weight: 800;
+  color: rgba(139,92,246,0.3); line-height: 1; padding-top: 16px;
+}
 
 .hero-sub {
   font-size: 15px; line-height: 1.7; color: var(--muted);
