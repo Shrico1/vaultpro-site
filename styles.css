@@ -44,10 +44,35 @@ body {
   padding: 14px 24px;
 }
 .nav-inner {
-  max-width: 680px; margin: 0 auto;
+  max-width: 960px; margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
 }
-.nav-logo { font-weight: 800; font-size: 16px; }
+.nav-logo { font-weight: 800; font-size: 16px; white-space: nowrap; }
+
+.nav-countdown-pill {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 100px;
+  background: rgba(139,92,246,0.08);
+  border: 1px solid rgba(139,92,246,0.2);
+  font-size: 12px; white-space: nowrap;
+}
+.nav-cd-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--purple); flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+.nav-cd-text { color: var(--muted); font-weight: 500; }
+.nav-cd-timer {
+  color: #fff; font-weight: 700;
+  font-variant-numeric: tabular-nums; letter-spacing: 0.3px;
+}
+.nav-cd-timer span { color: #fff; }
+.nav-cd-divider { color: rgba(139,92,246,0.4); }
+
+@media (max-width: 720px) {
+  .nav-countdown-pill { display: none; }
+}
 .nav-cta {
   display: inline-block;
   padding: 9px 20px; border-radius: 100px;

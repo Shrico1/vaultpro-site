@@ -5,14 +5,20 @@ const TOTAL = 7;
 function pad(n) { return String(n).padStart(2, '0'); }
 function tick() {
   const diff = CLOSE_DATE - Date.now();
-  if (diff <= 0) {
-    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '00');
-    return;
-  }
-  document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 86400000));
-  document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
-  document.getElementById('cd-mins').textContent  = pad(Math.floor((diff % 3600000) / 60000));
-  document.getElementById('cd-secs').textContent  = pad(Math.floor((diff % 60000) / 1000));
+  const d = diff <= 0 ? 0 : Math.floor(diff / 86400000);
+  const h = diff <= 0 ? 0 : Math.floor((diff % 86400000) / 3600000);
+  const m = diff <= 0 ? 0 : Math.floor((diff % 3600000) / 60000);
+  const s = diff <= 0 ? 0 : Math.floor((diff % 60000) / 1000);
+
+  document.getElementById('cd-days').textContent  = pad(d);
+  document.getElementById('cd-hours').textContent = pad(h);
+  document.getElementById('cd-mins').textContent  = pad(m);
+  document.getElementById('cd-secs').textContent  = pad(s);
+
+  document.getElementById('nav-days').textContent  = pad(d);
+  document.getElementById('nav-hours').textContent = pad(h);
+  document.getElementById('nav-mins').textContent  = pad(m);
+  document.getElementById('nav-secs').textContent  = pad(s);
 }
 tick(); setInterval(tick, 1000);
 
