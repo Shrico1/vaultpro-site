@@ -94,7 +94,7 @@ function nextStep(current) {
   if (current === 6 && !document.getElementById('email').value.trim()) { showErr(6); return; }
   clearErr(current);
   setStep(current + 1);
-  saveProgress();
+  if (current >= 5) saveProgress();
 }
 
 async function submitForm() {
