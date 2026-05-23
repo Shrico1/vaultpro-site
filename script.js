@@ -22,6 +22,45 @@ function tick() {
 }
 tick(); setInterval(tick, 1000);
 
+// Airtable progressive save
+let airtableRecordId = null;
+
+function getFormData() {
+  const data = {};
+  const name      = document.getElementById('name')?.value?.trim();
+  const phone     = document.getElementById('phone')?.value?.trim();
+  const email     = document.getElementById('email')?.value?.trim();
+  const instagram = document.getElementById('instagram')?.value?.trim();
+  const exp       = document.querySelector('input[name="experience"]:checked')?.value;
+  const goal      = document.querySelector('input[name="goal"]:checked')?.value;
+  const age       = document.querySelector('input[name="age"]:checked')?.value;
+  const budget    = document.querySelector('input[name="budget"]:checked')?.value;
+  if (name)      data.name       = name;
+  if (phone)     data.phone      = phone;
+  if (email)     data.email      = email;
+  if (instagram) data.instagram  = instagram;
+  if (exp)       data.experience = exp;
+  if (goal)      data.goal       = goal;
+  if (age)       data.age        = age;
+  if (budget)    data.budget     = budget;
+  if (airtableRecordId) data.recordId = airtableRecordId;
+  return data;
+}
+
+async function saveProgress() {
+  try {
+    const res = await fetch('https://vault-pro-apply.nsavi-finance.workers.dev/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(getFormData()),
+    });
+    if (res.ok) {
+      const json = await res.json();
+      if (json.id) airtableRecordId = json.id;
+    }
+  } catch {}
+}
+
 // Progress dots
 const dotsEl = document.getElementById('dots');
 for (let i = 1; i <= TOTAL; i++) {
@@ -55,6 +94,7 @@ function nextStep(current) {
   if (current === 6 && !document.getElementById('email').value.trim()) { showErr(6); return; }
   clearErr(current);
   setStep(current + 1);
+  saveProgress();
 }
 
 async function submitForm() {
@@ -66,22 +106,11 @@ async function submitForm() {
   btn.textContent = 'Submitting...';
   btn.disabled = true;
 
-  const data = {
-    name,
-    phone,
-    email:      document.getElementById('email').value.trim(),
-    instagram:  document.getElementById('instagram').value.trim(),
-    experience: document.querySelector('input[name="experience"]:checked')?.value || '',
-    goal:       document.querySelector('input[name="goal"]:checked')?.value || '',
-    age:        document.querySelector('input[name="age"]:checked')?.value || '',
-    budget:     document.querySelector('input[name="budget"]:checked')?.value || '',
-  };
-
   try {
     const res = await fetch('https://vault-pro-apply.nsavi-finance.workers.dev/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+      body: JSON.stringify(getFormData()),
     });
     if (!res.ok) throw new Error();
     document.getElementById('form-inner').style.display = 'none';
