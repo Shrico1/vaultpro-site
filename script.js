@@ -49,7 +49,7 @@ function getFormData() {
 
 async function saveProgress() {
   try {
-    const res = await fetch('https://vault-pro-apply.nsavi-finance.workers.dev/', {
+    const res = await fetch('/apply', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(getFormData()),
@@ -60,6 +60,7 @@ async function saveProgress() {
     }
   } catch {}
 }
+
 
 // Progress dots
 const dotsEl = document.getElementById('dots');
@@ -107,7 +108,7 @@ async function submitForm() {
   btn.disabled = true;
 
   try {
-    const res = await fetch('https://vault-pro-apply.nsavi-finance.workers.dev/', {
+    const res = await fetch('/apply', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(getFormData()),
