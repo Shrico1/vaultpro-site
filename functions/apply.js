@@ -14,19 +14,22 @@ export async function onRequestPost({ request, env }) {
           Name:       data.name       || '',
           Email:      data.email      || '',
           Phone:      data.phone      || '',
-          Instagram:  data.instagram  || '',
+          Platforms:  data.instagram  || '',
           Experience: data.experience || '',
-          Goal:       data.goal       || '',
           Age:        data.age        || '',
-          Budget:     data.budget     || '',
+          Revenue:    data.budget     || '',
+          Why:        data.goal       || '',
           Status:     'New',
-          'Applied At': new Date().toISOString(),
+          'Applied at': new Date().toISOString(),
         },
       }),
     }
   );
 
   const headers = { 'Access-Control-Allow-Origin': '*' };
-  if (!res.ok) return new Response('Error', { status: 500, headers });
+  if (!res.ok) {
+    const errText = await res.text();
+    return new Response(errText, { status: 500, headers });
+  }
   return new Response('OK', { status: 200, headers });
 }
